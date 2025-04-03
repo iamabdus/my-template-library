@@ -1,0 +1,306 @@
+.mtl-templates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.template-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.template-card:hover {
+    transform: translateY(-5px);
+}
+
+.template-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.template-card-content {
+    padding: 15px;
+}
+
+.template-card h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.template-card .demo-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #2271b1;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    border: none;
+    z-index: 10; /* Added z-index */
+}
+
+.template-card:hover .demo-button {
+    opacity: 1;
+}
+
+.template-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 5; /* Added z-index */
+}
+
+.template-card:hover::after {
+    opacity: 1;
+}
+
+/* Modal Styles */
+.template-preview-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    /* height: 95%;
+    margin: 1% auto; */
+    background: #fff;
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 100000;
+}
+
+.preview-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+/* Add this to your existing admin.css */
+
+/* Modal Toolbar */
+.modal-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    border-bottom: 1px solid #e2e2e2;
+    z-index: 100001;
+}
+
+.toolbar-left, .toolbar-center, .toolbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.toolbar-right{
+    width: 134px;
+}
+
+.back-to-library {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    font-size: 14px;
+    padding: 8px 12px;
+}
+
+.back-to-library .dashicons {
+    margin-right: 5px;
+}
+
+.responsive-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.responsive-buttons button {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: #555;
+    border-radius: 4px;
+}
+
+.responsive-buttons button.active {
+    background: #f1f1f1;
+    color: #000;
+}
+
+.apply-kit {
+    background: #e9c3f4;
+    color: #000;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    padding: 6px;
+}
+
+/* Update existing modal styles */
+#template-preview-modal .modal-content {
+    margin-top: 50px; /* Add space for toolbar */
+    height: calc(100% - 50px); /* Adjust height to account for toolbar */
+    text-align: center;
+}
+
+/* Responsive Preview Styles */
+.preview-frame.tablet {
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.preview-frame.mobile {
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.is-open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#template-preview-modal{
+    z-index: 99999;
+}
+
+#apply-kit-modal{
+    z-index: 100000;
+}
+
+
+#plugin-activation-modal{
+    z-index: 100005;
+}
+
+#kit-content-modal{
+    z-index: 100010;
+}
+
+#apply-kit-modal .modal-content,
+#plugin-activation-modal  .modal-content{
+    height: 100%;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.apply-button, .activate-plugins-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.cancel-button {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+}
+
+
+.plugin-list li {
+    margin-bottom: 10px;
+}
+
+
+.plugin-status {
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+.plugin-status.active {
+    background-color: #4CAF50;
+    color: white;
+}
+.plugin-status.inactive {
+    background-color: #FFC107;
+    color: black;
+}
+.plugin-status.processing {
+    background-color: #2196F3;
+    color: white;
+}
+.plugin-status.error {
+    background-color: #F44336;
+    color: white;
+}
